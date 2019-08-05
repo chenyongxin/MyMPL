@@ -32,8 +32,8 @@ def xtick(ax, fontPath=os.path.join(rcParams["datapath"], "fonts/ttf/Helvetica.t
     fontSize: integer
         Specify font size.
     """
-    prop = fm.FontProperties(fname=fontPath)
-    ax.set_xticklabels(ax.get_xticks(), fontProperties=prop, size=fontSize)
+    prop = fm.FontProperties(fname=fontPath, size=fontSize)
+    ax.set_xticklabels(ax.get_xticks(), fontProperties=prop)
     
     
 def ytick(ax, fontPath=os.path.join(rcParams["datapath"], "fonts/ttf/Helvetica.ttf"),
@@ -52,8 +52,8 @@ def ytick(ax, fontPath=os.path.join(rcParams["datapath"], "fonts/ttf/Helvetica.t
     fontSize: integer
         Specify font size.
     """
-    prop = fm.FontProperties(fname=fontPath)
-    ax.set_yticklabels(ax.get_yticks(), fontProperties=prop, size=fontSize)
+    prop = fm.FontProperties(fname=fontPath, size=fontSize)
+    ax.set_yticklabels(ax.get_yticks(), fontProperties=prop)
     
     
 def xytick(ax, fontPath=os.path.join(rcParams["datapath"], "fonts/ttf/Helvetica.ttf"),
@@ -73,9 +73,9 @@ def xytick(ax, fontPath=os.path.join(rcParams["datapath"], "fonts/ttf/Helvetica.
         Specify font size.
     """
     xtick(ax, fontPath=os.path.join(rcParams["datapath"], "fonts/ttf/Helvetica.ttf"),
-          fontSize=12)
+          fontSize=fontSize)
     ytick(ax, fontPath=os.path.join(rcParams["datapath"], "fonts/ttf/Helvetica.ttf"),
-          fontSize=12)
+          fontSize=fontSize)
     
     
 def xtick_formatter(ax, form='%.2f'):
