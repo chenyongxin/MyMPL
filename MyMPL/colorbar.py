@@ -8,6 +8,27 @@ import os
 from matplotlib import font_manager as fm
 from matplotlib import rcParams
 
+def label(cbar, text, fontPath=os.path.join(rcParams["datapath"], "fonts/ttf/Helvetica.ttf"),
+          fontSize=12):
+    """
+    Set up colorbar label
+    
+    Parameters
+    ----------
+    cbar: object
+        Colorbar object.
+        
+    text: string
+        Label content.
+        
+    fontPath: string
+        Path of font.
+    
+    fontSize: integer
+    """
+    prop = fm.FontProperties(fname=fontPath, size=fontSize)
+    cbar.set_label(text, fontProperties=prop)
+    
 def horizontal(cbar, fontPath=os.path.join(rcParams["datapath"], "fonts/ttf/Helvetica.ttf"),
           fontSize=12, direction='in'):
     """

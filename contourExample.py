@@ -26,8 +26,7 @@ MyMPL.axis.xtick_formatter(ax, form='%.0f')
 MyMPL.axis.ytick_formatter(ax, form='%.0f')
 MyMPL.label.xlabel(ax, r"$\mathbf{x}$", fontSize=12)
 MyMPL.label.ylabel(ax, r"$\mathbf{y}$", fontSize=12)
-MyMPL.legend.legend(ax, fontsize=12)
-cbar = ax.figure.colorbar(draw, orientation='horizontal', ticks=[-1,-0.5,0,0.5,1])
+cbar = ax.figure.colorbar(draw, orientation='horizontal', ticks=[-1,-0.5,0,0.5,1], shrink=0.8)
 #cbar.ax.set_xticklabels(['a','b','c','d','e'])     # modify the names if needed
 MyMPL.colorbar.horizontal(cbar, fontSize=12, direction='in')
-
+MyMPL.colorbar.label(cbar, r'sin($\mathit{xy}$)')
