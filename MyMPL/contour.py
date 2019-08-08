@@ -42,7 +42,42 @@ def paraview_colormap_generator(cmap, name, output=None, reverse=False):
         fh.write('</ColorMap>\n' )
         fh.write('</ColorMaps>')
         
+def paraview_mpl_colorbar_generator(cmap, name, output=None, reverse=False):
+    """
+    Generate a Pavaview xml colormap. Any default colormap is valid.
+    
+    Parameters
+    ----------
+    cmap: string
+        Name of default matplotlib colormap, e.g. 'jet'.
         
+    name: string
+        Name of color map.
+        
+    output: path, optional
+        The full path to save the customized color map.
+        e.g. output = "A/B/C/myColorMap.xml".
+        
+    reverse: boolean, optional
+        If reverse the range.
+    """
+    cmap = plt.cm.get_cmap(cmap)
+    colors = cmap(np.arange(cmap.N))[:,:-1]
+    if reverse: colors = np.flipud(colors)
+    N = colors.shape[0]
+    dx = 1./(N-1)
+    
+    file = "./customized.xml"
+    if output is not None: file = output
+    with open(file, 'w') as fh:
+        fh.write('<ColorMaps>\n')
+        fh.write('<ColorMap name="{}" space="RGB">\n'.format(name))
+        for i in range(N):
+            a = colors[i, :]
+            fh.write('<Point x="{}" o="1" r="{}" g="{}" b="{}"/>\n'.format(i*dx, a[0], a[1], a[2]))
+        fh.write('</ColorMap>\n' )
+        fh.write('</ColorMaps>')
         
 if __name__ == "__main__":
     paraview_colormap_generator(cmap=plt.cm.magma, name="hahaha", reverse=True)
+    paraview_mpl_colorbar_generator('bwr', 'blue_white_red')
