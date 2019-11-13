@@ -9,11 +9,22 @@ from matplotlib import font_manager as fm
 from matplotlib import rcParams
 from matplotlib.ticker import FormatStrFormatter
 
-def tick_direction(ax, direction='out'):
+def tick_direction(ax, direction='out', which='both'):
     """
-    Set up tick direction, with 'out', 'in' and 'inout'.
+    Set up tick direction
+    
+    Parameters
+    ----------
+    ax: object
+        Axes of the figure. Fetched by plt.gca()
+
+    direction: string, optional
+	Direction of ticks with 'out', 'in' and 'inout'.
+
+    which: string, optional
+    	Which tick is specified with 'both', 'major' and 'minor'.
     """
-    ax.tick_params(direction=direction)
+    ax.tick_params(which='both', direction=direction)
     
 
 def xtick(ax, fontPath=os.path.join(rcParams["datapath"], "fonts/ttf/Helvetica.ttf"),
