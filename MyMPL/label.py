@@ -63,3 +63,31 @@ def ylabel(ax, text, fontPath=os.path.join(rcParams["datapath"], "fonts/ttf/Helv
     """
     prop = fm.FontProperties(fname=fontPath)
     ax.set_ylabel(text, fontProperties=prop, fontsize=fontSize, color=color, alpha=alpha)
+    
+def zlabel(ax, text, fontPath=os.path.join(rcParams["datapath"], "fonts/ttf/Helvetica.ttf"),
+          fontSize=12, color='k', alpha=1.0):
+    """
+    Set zlabel
+    
+    Parameters
+    ----------
+    ax: object
+        Axes of the figure. Fetched by plt.gca()
+    
+    text: string
+        Text of x-axis label.    
+    
+    fontPath: string
+        Full path of font.
+        
+    fontSize: integer
+        Specify font size.
+
+    color: string
+	Color of label. Black is the defalut.
+
+    alpha: float
+	Transparency of label. 1 is default.
+    """
+    prop = fm.FontProperties(fname=fontPath)
+    ax.set_zlabel(text, fontProperties=prop, fontsize=fontSize, color=color, alpha=alpha)

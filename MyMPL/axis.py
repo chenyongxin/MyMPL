@@ -66,6 +66,25 @@ def ytick(ax, fontPath=os.path.join(rcParams["datapath"], "fonts/ttf/Helvetica.t
     prop = fm.FontProperties(fname=fontPath, size=fontSize)
     ax.set_yticklabels(ax.get_yticks(), fontProperties=prop)
     
+def ztick(ax, fontPath=os.path.join(rcParams["datapath"], "fonts/ttf/Helvetica.ttf"),
+          fontSize=12):
+    """
+    Set up fonts for z axis ticks 
+    
+    Parameters
+    ----------
+    ax: object
+        Axes of the figure. Fetched by plt.gca()
+    
+    fontPath: string
+        Full path of font.
+        
+    fontSize: integer
+        Specify font size.
+    """
+    prop = fm.FontProperties(fname=fontPath, size=fontSize)
+    ax.set_zticklabels(ax.get_yticks(), fontProperties=prop)
+    
     
 def xytick(ax, fontPath=os.path.join(rcParams["datapath"], "fonts/ttf/Helvetica.ttf"),
           fontSize=12):
@@ -83,11 +102,27 @@ def xytick(ax, fontPath=os.path.join(rcParams["datapath"], "fonts/ttf/Helvetica.
     fontSize: integer
         Specify font size.
     """
-    xtick(ax, fontPath=os.path.join(rcParams["datapath"], "fonts/ttf/Helvetica.ttf"),
-          fontSize=fontSize)
-    ytick(ax, fontPath=os.path.join(rcParams["datapath"], "fonts/ttf/Helvetica.ttf"),
-          fontSize=fontSize)
+    xtick(ax, fontPath=fontPath, fontSize=fontSize)
+    ytick(ax, fontPath=fontPath, fontSize=fontSize)
     
+def xyztick(ax, fontPath=os.path.join(rcParams["datapath"], "fonts/ttf/Helvetica.ttf"),
+          fontSize=12):
+    """
+    Set up fonts for x, y and z axis ticks together 
+    
+    Parameters
+    ----------
+    ax: object
+        Axes of the figure. Fetched by plt.gca()
+    
+    fontPath: string
+        Full path of font.
+        
+    fontSize: integer
+        Specify font size.
+    """
+    xytick(ax, fontPath=fontPath, fontSize=fontSize)
+    ztick(ax, fontPath=fontPath, fontSize=fontSize)
     
 def xtick_formatter(ax, form='%.2f'):
     """
@@ -117,6 +152,20 @@ def ytick_formatter(ax, form='%.2f'):
         Decimal or exponential format.
     """
     ax.yaxis.set_major_formatter(FormatStrFormatter(form))
+    
+def ztick_formatter(ax, form='%.2f'):
+    """
+    Set up z-axis tick formats.
+    
+    Parameters
+    ----------
+    ax: object
+        Axes of the figure.
+    
+    form: string
+        Decimal or exponential format.
+    """
+    ax.zaxis.set_major_formatter(FormatStrFormatter(form))
 
 def spines(ax, visible={'left', 'bottom'}):
     """
