@@ -9,7 +9,7 @@ from matplotlib import font_manager as fm
 from matplotlib import rcParams
 
 def xlabel(ax, text, fontPath=os.path.join(rcParams["datapath"], "fonts/ttf/Helvetica.ttf"),
-          fontSize=12, color='k', alpha=1.0):
+          fontSize=12, color='k', alpha=1.0, **kwargs):
     """
     Set xlabel
     
@@ -34,10 +34,10 @@ def xlabel(ax, text, fontPath=os.path.join(rcParams["datapath"], "fonts/ttf/Helv
 	Transparency of label. 1 is default.
     """
     prop = fm.FontProperties(fname=fontPath)
-    ax.set_xlabel(text, fontProperties=prop, fontsize=fontSize, color=color, alpha=alpha)
+    ax.set_xlabel(text, fontProperties=prop, fontsize=fontSize, color=color, alpha=alpha, **kwargs)
 
 def ylabel(ax, text, fontPath=os.path.join(rcParams["datapath"], "fonts/ttf/Helvetica.ttf"),
-          fontSize=12, color='k', alpha=1.0):
+          fontSize=12, color='k', alpha=1.0, **kwargs):
     """
     Set ylabel
     
@@ -62,10 +62,10 @@ def ylabel(ax, text, fontPath=os.path.join(rcParams["datapath"], "fonts/ttf/Helv
 	Transparency of label. 1 is default.
     """
     prop = fm.FontProperties(fname=fontPath)
-    ax.set_ylabel(text, fontProperties=prop, fontsize=fontSize, color=color, alpha=alpha)
+    ax.set_ylabel(text, fontProperties=prop, fontsize=fontSize, color=color, alpha=alpha, **kwargs)
     
 def zlabel(ax, text, fontPath=os.path.join(rcParams["datapath"], "fonts/ttf/Helvetica.ttf"),
-          fontSize=12, color='k', alpha=1.0):
+          fontSize=12, color='k', alpha=1.0, **kwargs):
     """
     Set zlabel
     
@@ -90,4 +90,4 @@ def zlabel(ax, text, fontPath=os.path.join(rcParams["datapath"], "fonts/ttf/Helv
 	Transparency of label. 1 is default.
     """
     prop = fm.FontProperties(fname=fontPath)
-    ax.set_zlabel(text, fontProperties=prop, fontsize=fontSize, color=color, alpha=alpha)
+    ax.set_zlabel(text, fontProperties=prop, fontsize=fontSize, color=color, alpha=alpha, **kwargs)
