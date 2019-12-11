@@ -44,8 +44,8 @@ def xtick(ax, fontPath=os.path.join(rcParams["datapath"], "fonts/ttf/Helvetica.t
         Specify font size.
     """
     prop = fm.FontProperties(fname=fontPath, size=fontSize)
-    ax.set_xticklabels(ax.get_xticks(), fontProperties=prop)
-    
+    #ax.set_xticklabels(ax.get_xticks(), fontProperties=prop)              # this option replaces the location of ticks with number
+    for label in ax.get_xticklabels(): label.set_fontproperties(prop)      # this option modify the tick object with properties
     
 def ytick(ax, fontPath=os.path.join(rcParams["datapath"], "fonts/ttf/Helvetica.ttf"),
           fontSize=12):
@@ -64,7 +64,7 @@ def ytick(ax, fontPath=os.path.join(rcParams["datapath"], "fonts/ttf/Helvetica.t
         Specify font size.
     """
     prop = fm.FontProperties(fname=fontPath, size=fontSize)
-    ax.set_yticklabels(ax.get_yticks(), fontProperties=prop)
+    for label in ax.get_yticklabels(): label.set_fontproperties(prop)
     
 def ztick(ax, fontPath=os.path.join(rcParams["datapath"], "fonts/ttf/Helvetica.ttf"),
           fontSize=12):
@@ -83,8 +83,7 @@ def ztick(ax, fontPath=os.path.join(rcParams["datapath"], "fonts/ttf/Helvetica.t
         Specify font size.
     """
     prop = fm.FontProperties(fname=fontPath, size=fontSize)
-    ax.set_zticklabels(ax.get_yticks(), fontProperties=prop)
-    
+    for label in ax.get_zticklabels(): label.set_fontproperties(prop)
     
 def xytick(ax, fontPath=os.path.join(rcParams["datapath"], "fonts/ttf/Helvetica.ttf"),
           fontSize=12):

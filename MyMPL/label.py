@@ -7,6 +7,7 @@ Set up x and y label.
 import os
 from matplotlib import font_manager as fm
 from matplotlib import rcParams
+import matplotlib.pyplot as plt
 
 def xlabel(ax, text, fontPath=os.path.join(rcParams["datapath"], "fonts/ttf/Helvetica.ttf"),
           fontSize=12, color='k', alpha=1.0, **kwargs):
@@ -91,3 +92,8 @@ def zlabel(ax, text, fontPath=os.path.join(rcParams["datapath"], "fonts/ttf/Helv
     """
     prop = fm.FontProperties(fname=fontPath)
     ax.set_zlabel(text, fontProperties=prop, fontsize=fontSize, color=color, alpha=alpha, **kwargs)
+    
+def title(ax, text, fontPath=os.path.join(rcParams["datapath"], "fonts/ttf/Helvetica.ttf"),
+          fontSize=12, color='k', alpha=1.0, **kwargs):
+    prop = fm.FontProperties(fname=fontPath)
+    ax.set_title(text, fontProperties=prop, color=color, alpha=alpha, fontsize=fontSize, **kwargs)
