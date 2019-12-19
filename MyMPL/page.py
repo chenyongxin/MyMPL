@@ -39,7 +39,7 @@ def figureWidth(wa=0.7, rb=0.9, wp=210):
     """
     return mm2inch(wa*rb*wp)
 
-def figureHeight(width, ratio=0.618):
+def figureHeight(width, ratio=0.675):
     """
     Compute figure height with a ratio.
     
@@ -49,7 +49,7 @@ def figureHeight(width, ratio=0.618):
         Figure width in inch.
         
     ratio: float
-        Ratio of height to wdith.
+        Ratio of height to wdith. The default ratio is 0.675.
     
     Returns
     -------
@@ -58,7 +58,7 @@ def figureHeight(width, ratio=0.618):
     """
     return width*ratio
 
-def figureSize(wa=0.7, rb=0.9, wp=210, ratio=0.618):
+def figureSize(wa=0.7, rb=1.0, wp=210, ratio=0.675):
     """
     Compute figure width and height.
     
@@ -70,7 +70,7 @@ def figureSize(wa=0.7, rb=0.9, wp=210, ratio=0.618):
     
     rb: float
         Ratio of border of text. For example, rb=0.9 for the ratio of text to the 
-        width of page is 0.9.
+        width of page is 0.9. The default value is 1.0. Change it if this value is applicable.
         
     wp: int, float
         Width of page in millimetre. Default value 210 is for a A4 paper.
